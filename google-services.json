@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861477600778",
+    "project_id": "studio-4375064361-b487a",
+    "storage_bucket": "studio-4375064361-b487a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861477600778:android:903eb95d0562cb7bbea9f3",
+        "android_client_info": {
+          "package_name": "com.rtrw.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzkTQd_d4RwZDy6IfyBKzyTwdvbbzaX4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
