@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # SAKELAR SAKTI: Memaksa semua aksi GitHub menggunakan Node.js 24 sesuai aturan baru
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
       
@@ -31,6 +30,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
+
+      # SAKELAR IZIN SAKTI: Memberikan hak akses penuh ke robot GitHub sebelum eksekusi gradle
+      - name: Grant execute permission for gradlew
+        run: chmod +x android/gradlew
 
       - name: Clear Gradle Cache (Anti APK Versi Lama)
         run: |
