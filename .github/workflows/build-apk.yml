@@ -31,12 +31,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      # SOLUSI JITU: Unduh otomatis komponen gradle-wrapper.jar yang hilang langsung saat build
+      # SUNTIKAN KODE RINGKAS DARI KAMU (100% Bersih!)
       - name: Download Gradle Wrapper JAR
         run: |
           mkdir -p android/gradle/wrapper
-          cd android/gradle/wrapper
-          curl -L -o gradle-wrapper.jar https://services.gradle.org/distributions/gradle-8.0-wrapper.jar
+          curl -L https://services.gradle.org/distributions/gradle-8.0-wrapper.jar -o android/gradle/wrapper/gradle-wrapper.jar
 
       - name: Clear Gradle Cache (Anti APK Versi Lama)
         run: |
