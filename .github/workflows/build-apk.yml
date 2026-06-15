@@ -31,7 +31,13 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      # Menggunakan metode 'bash gradlew' sesuai rekomendasi Cara 2 (Anti Ribet Izin Berkas)
+      # SOLUSI JITU: Unduh otomatis komponen gradle-wrapper.jar yang hilang langsung saat build
+      - name: Download Gradle Wrapper JAR
+        run: |
+          mkdir -p android/gradle/wrapper
+          cd android/gradle/wrapper
+          curl -L -o gradle-wrapper.jar https://services.gradle.org/distributions/gradle-8.0-wrapper.jar
+
       - name: Clear Gradle Cache (Anti APK Versi Lama)
         run: |
           cd android
