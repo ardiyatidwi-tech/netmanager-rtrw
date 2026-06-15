@@ -1,0 +1,46 @@
+name: Build Android APK
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Web Dependencies
+        run: npm install
+
+      - name: Build Web Next.js
+        run: npm run build
+
+      - name: Set up JDK 17 (Bahan Rakit Android)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # SAKLAR SAKTI: Ini dia perintah pembersih cache yang tadi, ditaruh di sini biar robot GitHub yang eksekusi
+      - name: Clear Gradle Cache (Anti APK Versi Lama)
+        run: |
+          cd android
+          ./gradlew clean
+
+      - name: Build APK Fresh
+        run: |
+          cd android
+          ./gradlew assembleDebug
+
+      - name: Upload Hasil APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-fresh
+          path: android/app/build/outputs/apk/debug/app-debug.apk
