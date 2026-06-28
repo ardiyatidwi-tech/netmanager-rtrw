@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">NETMANAGER</string>
-    <string name="title_activity_main">NETMANAGER</string>
-    <string name="package_name">com.netmanager.rtrw</string>
-    <string name="custom_url_scheme">com.netmanager.rtrw</string>
-</resources>
